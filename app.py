@@ -9,6 +9,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", __name__)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DEBUG = True
 SECRET_KEY = '__secret_key__'
+ALLOWED_HOSTS = ['*']
 
 ROOT_URLCONF = __name__
 TEMPLATES = [{
