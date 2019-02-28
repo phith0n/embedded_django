@@ -1,7 +1,6 @@
 import os
 import sys
-import netius.servers
-from django.conf.urls import url
+from django.urls import include, path
 from django.shortcuts import render
 from django.core.wsgi import get_wsgi_application
 
@@ -26,13 +25,14 @@ def home(request):
 
 
 urlpatterns = [
-    url(r'^$', home),
+    path('', home),
 ]
 
 if DEBUG:
     from django.core.management import execute_from_command_line
     execute_from_command_line(sys.argv)
 else:
+    import netius.servers
     application = get_wsgi_application()
     server = netius.servers.WSGIServer(app=application)
     server.serve(port=8000)
